@@ -103,6 +103,7 @@ class BasePanel(wx.Panel):
 
         self.SetSizer(sizer)
         self.SetAutoLayout(1)
+        
 
     def __getitem__(self, item):
         return self.__getattribute__(item)
@@ -161,12 +162,14 @@ class BasePanel(wx.Panel):
     @add_entry
     def add_color_picker(self, panel, _, *args, **kwargs):
         return ColourPickerCtrl(panel, *args, **kwargs)
+    
 
     def add_nameable_float_entry(self, panel, *args, **kwargs):
         label = wx.StaticText(panel, -1, '')
         panel.sizer.Add(label, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 5)
         control = self.add_float_entry(panel, None, *args, **kwargs)
         return label, control
+        
 
     def on_edit(self, _):
         if not self.edit_thread:

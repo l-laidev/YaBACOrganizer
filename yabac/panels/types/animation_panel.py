@@ -16,21 +16,21 @@ class AnimationPanel(BasePanel):
 
         self.animation_flags = self.add_multiple_selection_entry(self.entry_page, 'Animation Flags', choices=[
             ('Animation Options #1', [
-                'ignore b_C_Base movement',
+                'ignore b_C_Base Z movement',
                 'Specific per EAN Type',
                 "Unknown (0x4)",
-                'Unknown (0x8)'
+                'Rotate by 180 degrees'
             ], True),
             ('Animation Options #2', [
                 'Unknown (0x1)',
                 'Continue From Last Entry',
-                "Unknown (0x4)",
-                'Unknown (0x8)'
+                "ignore b_C_Base X movement",
+                'ignore b_C_Base Y movement'
             ], True),
             ('Animation Options #3', [
-                'Unknown (0x1)',
+                'Force b_C_Base Motion',
                 'Unknown (0x2)',
-                "Unknown (0x4)",
+                "Force b_C_Base Y Motion",
                 'Unknown (0x8)'
             ], True),
             ('Animation Options #4', [
@@ -58,3 +58,4 @@ class AnimationPanel(BasePanel):
             speed_page, 'Animation Transition\nStart Frame')
         self.animation_transition_frame_step = self.add_float_entry(
             speed_page, 'Animation Transition\nFrame Step')
+        

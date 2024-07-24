@@ -17,6 +17,7 @@ class SystemPanel(BasePanel):
         self.f_14_label, self.f_14 = self.add_nameable_float_entry(self.entry_page, name='F_14')
         self.f_18_label, self.f_18 = self.add_nameable_float_entry(self.entry_page, name='F_18')
         self.f_1c_label, self.f_1c = self.add_nameable_float_entry(self.entry_page, name='F_1C')
+        
 
         # self.u_18 = self.add_float_entry(self.unknown_page, 'F_18')
         # self.u_1c = self.add_float_entry(self.unknown_page, 'F_1C')

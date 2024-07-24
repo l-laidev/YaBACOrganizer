@@ -41,36 +41,37 @@ class HitboxPanel(BasePanel):
                 ('Unknown', None, True)
             ])
 
-        self.hitbox_properties_1 = self.add_multiple_selection_entry(
-            self.entry_page,
-            'Hitbox Properties 1',
-            majorDimension=2,
-            choices=[
-                ('Hitbox Options #1', [
-                    'Unknown (0x1)',
-                    'Unknown (0x2)',
-                    "Unknown (0x4)",
-                    'Unknown (0x8)'
-                ], True),
-                ('Hitbox Options #2', [
-                    'Unknown (0x1)',
-                    'Unknown (0x2)',
-                    "Unknown (0x4)",
-                    'Unknown (0x8)'
-                ], True),
-                ('Hitbox Options #3', [
-                    'Unknown (0x1)',
-                    'Unknown (0x2)',
-                    "Unknown (0x4)",
-                    'Unknown (0x8)'
-                ], True),
-                ('Hitbox Options #4', [
-                    'Unknown (0x1)',
-                    'Unknown (0x2)',
-                    "Unknown (0x4)",
-                    'Unknown (0x8)'
-                ], True)
-            ])
+        # self.hitbox_properties_1 = self.add_multiple_selection_entry(
+        #     self.entry_page,
+        #     'Hitbox Properties 1',
+        #     majorDimension=2,
+        #     choices=[
+        #         ('Hitbox Options #1', [
+        #             'Unknown (0x1)',
+        #             'Unknown (0x2)',
+        #             "Unknown (0x4)",
+        #             'Unknown (0x8)'
+        #         ], True),
+        #         ('Hitbox Options #2', [
+        #             'Unknown (0x1)',
+        #             'Unknown (0x2)',
+        #             "Unknown (0x4)",
+        #             'Unknown (0x8)'
+        #         ], True),
+        #         ('Hitbox Options #3', [
+        #             'Unknown (0x1)',
+        #             'Unknown (0x2)',
+        #             "Unknown (0x4)",
+        #             'Unknown (0x8)'
+        #         ], True),
+        #         ('Hitbox Options #4', [
+        #             'Unknown (0x1)',
+        #             'Unknown (0x2)',
+        #             "Unknown (0x4)",
+        #             'Unknown (0x8)'
+        #         ], True)
+        #     ])
+        self.hitbox_properties_1 = self.add_num_entry(self.entry_page, 'Hitbox Properties 1')
 
         self.bone_link = self.add_single_selection_entry(self.entry_page, 'Bone Link', majorDimension=5, choices=BONE_TYPES)
 

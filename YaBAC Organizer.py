@@ -192,9 +192,18 @@ class MainWindow(wx.Frame):
         dlg.Destroy()
 
     def on_check(self, _):
+        if self.main_panel.bac is None:
+            self.hidden.SetValue(True)
+
+            dlg = wx.MessageDialog(self, " No BAC Loaded", "Warning", wx.OK)
+            dlg.ShowModal()
+            dlg.Destroy()
+            
+            return
+        
         self.main_panel.build_tree()
         pub.sendMessage('hide_panels')
-
+        
     def on_convert(self, _):
         pub.sendMessage('convert_for_skill_creator')
 

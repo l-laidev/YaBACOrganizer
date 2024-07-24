@@ -67,6 +67,7 @@ class SidePanel(wx.Panel):
 
         self.SetSizer(sizer)
         self.SetAutoLayout(1)
+        
 
     def show_panel(self, panel, item, entry):
         if self.current_panel != panel:

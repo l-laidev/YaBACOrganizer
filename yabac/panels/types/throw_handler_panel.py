@@ -15,17 +15,17 @@ class ThrowHandlerPanel(BasePanel):
                 "Unknown (0x4)",
                 'Unknown (0x8)'
             ], True),
-            ('Throw Options #2', [
-                'Unknown (0x1)',
-                'Unknown (0x2)',
-                "Unknown (0x4)",
-                'Unknown (0x8)'
-            ], True),
             ('Jump to BAC entry', [
                 'Unknown (0x1)',
                 'When duration is finished',
                 "Unknown (0x4)",
                 'When ground is reached'
+            ], True),
+            ('Throw Options #3', [
+                'Unknown (0x1)',
+                'Unknown (0x2)',
+                "Unknown (0x4)",
+                'Unknown (0x8)'
             ], True),
             ('Direction, orientation and connection', [
                 'Direction fixed to animation, Bone Connection Enabled (User Only)',

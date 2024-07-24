@@ -82,6 +82,7 @@ class MainPanel(wx.Panel):
         # Layout sizers
         self.SetSizer(sizer)
         self.SetAutoLayout(1)
+        
 
     def enable_selected(self, menu_item, single=True, entry=None):
         selected = self.entry_list.GetSelections()
@@ -280,11 +281,12 @@ class MainPanel(wx.Panel):
         self.entry_list.Refresh()
         hidden = self.parent.hidden.GetValue()
         self.entry_list.AddRoot("Entries")
+        
         for i, entry in enumerate(self.bac.entries):
             if not entry.sub_entries and hidden:
                 continue
             entry_item = self.entry_list.AppendItem(
-                self.entry_list.GetRootItem(), f'{entry.index}: Entry (0x{entry.flags:X}){entry.getDisplayComment()}', data=entry)
+            self.entry_list.GetRootItem(), f'{entry.index}: Entry (0x{entry.flags:X}){entry.getDisplayComment()}', data=entry)
             self.build_entry_tree(entry_item, entry)
 
     def build_entry_tree(self, entry_item, entry):

@@ -209,7 +209,11 @@ class BasePanel(wx.Panel):
         self.item = item
         self.saved_values = {}
         for name in entry.__fields__:
-            self[name].SetValue(entry[name])
+            v = entry[name]
+            # Type22's name field must be a string, but it is by default 0 (an int) if we add that entry ourselves, so fix that
+            if isinstance(v, int) and entry.type == 22 and name == 'name':
+                v = str('')
+            self[name].SetValue(v)
         self.entry = entry
 
     def save_entry(self, _):

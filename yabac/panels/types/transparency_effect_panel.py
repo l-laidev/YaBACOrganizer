@@ -6,8 +6,14 @@ from pyxenoverse.gui.ctrl.dummy_ctrl import DummyCtrl
 class TransparencyEffectPanel(BasePanel):
     def __init__(self, *args):
         BasePanel.__init__(self, *args)
-        self.transparency_flags = self.add_hex_entry(self.entry_page, 'Transparency Flags')
-        self.transparency_flags2 = self.add_hex_entry(self.entry_page, 'Transparency Flags 2')
+        # self.transparency_flags = self.add_hex_entry(self.entry_page, 'Transparency Flags')
+        # self.transparency_flags2 = self.add_hex_entry(self.entry_page, 'Transparency Flags 2')
+
+        self.transparency_flags = self.add_hex_entry(self.entry_page, 'Transparency Flags', max=0xFF)
+        self.vertical_gap_width = self.add_hex_entry(self.entry_page, 'Vertical Gap Width', max=0xFF)
+        self.horizontal_gap_width = self.add_hex_entry(self.entry_page, 'Horizontal Gap Height', max=0xFF)
+        self.visible_pixel_width = self.add_hex_entry(self.entry_page, 'Visible Pixel Width', max=0xFF)
+
         self.dilution = self.add_num_entry(self.entry_page, 'Dilution')
         self.u_0e = self.add_hex_entry(self.unknown_page, 'U_0E', max=0xFFFF)
         self.u_10 = self.add_hex_entry(self.unknown_page, 'U_10')

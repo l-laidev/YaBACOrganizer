@@ -32,8 +32,8 @@ class ProjectilePanel(BasePanel):
                     'Super': 0x5,
                     'Ultimate': 0x6,
                     'Evasive': 0x7,
-                    'Blast': 0x8,
-                    'Unknown (0x9)': 0x9
+                    'Unknown (0x8)': 0x8,
+                    'KI Blast': 0x9
                 }, False)
             ])
         self.skill_id = self.add_num_entry(self.entry_page, 'Skill Id')

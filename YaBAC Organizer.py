@@ -5,6 +5,7 @@ import traceback
 
 from pubsub import pub
 import wx
+import wx.lib
 from wx.lib.dialogs import ScrolledMessageDialog
 from wx.lib.agw.hyperlink import HyperLinkCtrl
 
@@ -15,6 +16,8 @@ from yabac.panels.side import SidePanel
 from yabac.dlg.find import FindDialog
 from yabac.dlg.replace import ReplaceDialog
 
+
+import yabac.darkmode as darkmode
 
 
 VERSION = '0.4.6'
@@ -90,6 +93,8 @@ class MainWindow(wx.Frame):
         self.hidden = wx.CheckBox(self, -1, 'Hide Empty Entries')
         self.hidden.SetValue(True)
         self.hidden.Bind(wx.EVT_CHECKBOX, self.on_check)
+        toggle_dark_mode_button = wx.ToggleButton(self, label='Toggle Dark')
+        toggle_dark_mode_button.Bind(wx.EVT_TOGGLEBUTTON, self.on_toggle_dark)
 
         hyperlink = HyperLinkCtrl(self, -1, "What do all these things mean?",
                                   URL="https://docs.google.com/document/d/"
@@ -101,6 +106,8 @@ class MainWindow(wx.Frame):
         button_sizer.Add(open_button)
         button_sizer.AddSpacer(10)
         button_sizer.Add(save_button)
+        button_sizer.AddSpacer(10)
+        button_sizer.Add(toggle_dark_mode_button)
         button_sizer.Add(self.hidden, 0, wx.ALL, 10)
         button_sizer.Add(hyperlink, 0, wx.ALL, 10)
 
@@ -217,6 +224,10 @@ class MainWindow(wx.Frame):
 
     def set_status_bar(self, text):
         self.statusbar.SetStatusText(text)
+    
+    def on_toggle_dark(self, event):
+        darkmode.darkMode(self, "White")
+        pub.sendMessage('toggle_dark_mode', e="light" if self.GetBackgroundColour() == "White" else "dark")
 
 
 if __name__ == '__main__':

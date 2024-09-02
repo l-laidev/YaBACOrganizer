@@ -51,7 +51,7 @@ class PasteDialog(wx.Dialog):
                             find_value = value
                         else:
                             ctrl.Select(n + 1)
-                            find_value = int(ctrl.GetString(n + 1))
+                            find_value = int(ctrl.GetString(n + 1), 0)  # MY CHANGE: this gave error on 0x literals
 
                         found_conflict = self.find(item_type, entry, find_value)
                         if found_conflict:

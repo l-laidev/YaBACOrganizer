@@ -26,12 +26,24 @@ class ScreenEffectPanel(BasePanel):
                     None,
                     None
                 ], True),
-                ('Activation Options', {
-                    'On': 0x0,
-                    'Unknown (0x1)': 0x1,
-                    "Off? (0x2)": 0x2,
-                    'Off? (0x3)': 0x3
-                }, False)
+                ('ScreenEffect Options #3', [
+                    None,
+                    None,
+                    None,
+                    None
+                ], True),
+                ('ScreenEffect Options #4', [
+                    'Visible For All',
+                    'Disable Effect',
+                    'Unknown (0x4)',
+                    'Loop with Action',
+                ], True)
+                # ('Activation Options', {
+                #     'On': 0x0,
+                #     'Unknown (0x1)': 0x1,
+                #     "Off? (0x2)": 0x2,
+                #     'Off? (0x3)': 0x3
+                # }, False)
             ]
         )
 

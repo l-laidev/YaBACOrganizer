@@ -637,10 +637,22 @@ class MainPanel(wx.Panel):
         entry = self.entry_list.GetItemData(item)
 
         if type(paste_data) != type(entry):
-            with wx.MessageDialog(self, f"Unable to paste '{paste_data.get_readable_name()}' type "
-                                        f"onto '{entry.get_readable_name()}'") as dlg:
-                dlg.ShowModal()
-            return
+            if type(entry) == Entry:
+                with wx.MessageDialog(self, f"Unable to paste '{paste_data.get_readable_name()}' type "
+                                        f"onto '{entry.get_readable_name()}'"
+                                        f"\nDo you want to add `{paste_data.get_readable_name()}` entry?",
+                                        style=wx.YES | wx.NO) as dlg:
+                    res = dlg.ShowModal()
+                    if res == wx.ID_YES:
+                        item, _ = self.add_item(paste_data.type)
+                        entry = self.entry_list.GetItemData(item)
+                    else:
+                        return
+            else:
+                with wx.MessageDialog(self, f"Unable to paste '{paste_data.get_readable_name()}' type "
+                                            f"onto '{entry.get_readable_name()}'") as dlg:
+                    dlg.ShowModal()
+                return
 
         entry_values = entry.get_static_values()
         paste_values = paste_data.get_static_values()

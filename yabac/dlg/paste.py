@@ -2,6 +2,7 @@ from collections import defaultdict
 from pyxenoverse.gui import get_first_item, get_next_item
 
 import wx
+from yabac.my_helpers import convert_to_px
 
 
 def unsnake_case(text):
@@ -36,7 +37,7 @@ class PasteDialog(wx.Dialog):
                             f'({item_type.dependencies[entry_pair][depend_value]}): '), 0,
                             wx.ALL, 5
                         )
-                    grid_sizer = wx.FlexGridSizer(rows=len(entry_values), cols=3, hgap=10, vgap=10)
+                    grid_sizer = wx.FlexGridSizer(rows=len(entry_values), cols=3, hgap=convert_to_px(10), vgap=convert_to_px(10, False))
                     sizer.Add(grid_sizer, 0, wx.ALL, 10)
                     choices = ['No Change']
                     if item_type in curr_values and entry_pair in curr_values[item_type] and depend_value in curr_values[item_type][entry_pair]:
@@ -77,7 +78,7 @@ class PasteDialog(wx.Dialog):
         button_sizer.Add(keep_button, 0, wx.LEFT | wx.RIGHT, 2)
         button_sizer.Add(cancel_button, 0, wx.LEFT | wx.RIGHT, 5)
 
-        sizer.Add(wx.StaticLine(self, size=(400, -1)), 0, wx.EXPAND | wx.ALL, 10)
+        sizer.Add(wx.StaticLine(self, size=(convert_to_px(400), -1)), 0, wx.EXPAND | wx.ALL, 10)
         sizer.Add(button_sizer, 0, wx.ALIGN_CENTER | wx.TOP | wx.BOTTOM, 10)
 
         self.Bind(wx.EVT_CHOICE, self.on_choice)

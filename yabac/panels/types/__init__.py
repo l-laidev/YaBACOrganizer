@@ -11,6 +11,9 @@ from pyxenoverse.gui.ctrl.text_ctrl import TextCtrl
 from pyxenoverse.gui.ctrl.unknown_hex_ctrl import UnknownHexCtrl
 from pyxenoverse.gui.ctrl.num_ctrl import NumCtrl
 
+from yabac.my_helpers import convert_to_px
+
+
 MAX_UINT16 = 0xFFFF
 MAX_UINT32 = 0xFFFFFFFF
 BONE_TYPES = {
@@ -56,7 +59,7 @@ BONE_TYPES = {
 class Page(ScrolledPanel):
     def __init__(self, parent, rows=32):
         ScrolledPanel.__init__(self, parent)
-        self.sizer = wx.FlexGridSizer(rows=rows, cols=2, hgap=10, vgap=10)
+        self.sizer = wx.FlexGridSizer(rows=rows, cols=2, hgap=convert_to_px(10), vgap=convert_to_px(10, False))
         self.SetSizer(self.sizer)
         self.SetupScrolling()
 
@@ -115,20 +118,20 @@ class BasePanel(wx.Panel):
     @add_entry
     def add_text_entry(self, panel, _, *args, **kwargs):
         if 'size' not in kwargs:
-            kwargs['size'] = (150, -1)
+            kwargs['size'] = (convert_to_px(150), -1)
         return TextCtrl(panel, *args, **kwargs)
 
     @add_entry
     def add_num_entry(self, panel, _, *args, **kwargs):
         if 'size' not in kwargs:
-            kwargs['size'] = (150, -1)
+            kwargs['size'] = (convert_to_px(150), -1)
         kwargs['min'], kwargs['max'] = 0, 65535
         return wx.SpinCtrl(panel, *args, **kwargs)
 
     @add_entry
     def add_unknown_num_entry(self, panel, _, *args, **kwargs):
         if 'size' not in kwargs:
-            kwargs['size'] = (150, -1)
+            kwargs['size'] = (convert_to_px(150), -1)
         kwargs['min'], kwargs['max'] = 0, 65535
         return NumCtrl(panel, *args, **kwargs)
 
@@ -143,13 +146,13 @@ class BasePanel(wx.Panel):
     @add_entry
     def add_unknown_hex_entry(self, panel, _, *args, **kwargs):
         if 'size' not in kwargs:
-            kwargs['size'] = (150, -1)
+            kwargs['size'] = (convert_to_px(150), -1)
         return UnknownHexCtrl(panel, *args, **kwargs)
 
     @add_entry
     def add_float_entry(self, panel, _, *args, **kwargs):
         if 'size' not in kwargs:
-            kwargs['size'] = (150, -1)
+            kwargs['size'] = (convert_to_px(150), -1)
         if 'min' not in kwargs:
             kwargs['min'] = -3.402823466e38
         if 'max' not in kwargs:

@@ -644,8 +644,12 @@ class MainPanel(wx.Panel):
                                         style=wx.YES | wx.NO) as dlg:
                     res = dlg.ShowModal()
                     if res == wx.ID_YES:
-                        item, _ = self.add_item(paste_data.type)
-                        entry = self.entry_list.GetItemData(item)
+                        if type(paste_data) == SubEntry:
+                            item, _ = self.add_sub_entry(paste_data.type)
+                            entry = self.entry_list.GetItemData(item)
+                        else:
+                            item, _ = self.add_item(paste_data.type)
+                            entry = self.entry_list.GetItemData(item)
                     else:
                         return
             else:

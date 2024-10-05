@@ -159,7 +159,7 @@ class BasePanel(wx.Panel):
             kwargs['max'] = 3.402823466e38
 
 
-        kwargs['inc'] = 0.01
+        kwargs['inc'] = 0.0001
         return wx.SpinCtrlDouble(panel, *args, **kwargs)
 
     @add_entry

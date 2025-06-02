@@ -1,7 +1,7 @@
 from yabac.panels.types import BasePanel, Page
 
 
-class Type29Panel(BasePanel):
+class EMMEditPanel(BasePanel):
     def __init__(self, *args):
 
         BasePanel.__init__(self, *args)

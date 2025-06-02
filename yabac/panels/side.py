@@ -35,9 +35,10 @@ from yabac.panels.types.dual_skill_handler_panel import DualSkillHandlerPanel
 from yabac.panels.types.charge_attack_parameters_panel import ChargeAttackParametersPanel
 from yabac.panels.types.extended_camera_control_panel import ExtendedCameraControlPanel
 from yabac.panels.types.effect_property_control_panel import EffectPropertyControlPanel
-from yabac.panels.types.type28_panel import Type28Panel
-from yabac.panels.types.type29_panel import Type29Panel
+from yabac.panels.types.dytchanger_panel import DYTChangerPanel
+from yabac.panels.types.emmedit_panel import EMMEditPanel
 from yabac.panels.types.type30_panel import Type30Panel
+from yabac.panels.types.type31_panel import Type31Panel
 
 RE_PATTERN = re.compile(r".*'(.*[.])*(.*)'.*")
 

@@ -6,7 +6,7 @@ class PhysicsPanel(BasePanel):
     def __init__(self, *args):
         BasePanel.__init__(self, *args)
         
-        self.function_type = self.add_multiple_selection_entry(self.entry_page, 'Function Type', choices=[
+        self.function_type = self.add_multiple_selection_entry(self.entry_page, 'Function Type', majorDimension=3, choices=[
                                                                    ("Options #1", [
                                                                        'Unk1',
                                                                        'Unk2',
@@ -25,12 +25,25 @@ class PhysicsPanel(BasePanel):
                                                                        'Unk3',
                                                                        'Unk4'
                                                                    ], True),
-                                                                   ("Options #4", [
-                                                                       'Unk1',
-                                                                       'Simulate Physics',
-                                                                       'Play SCD Animations',
-                                                                       'Unk4'
-                                                                   ], True),
+                                                                   ("Options #4", {
+                                                                       'Unk1': 0x0,
+                                                                       'Simulate Physics': 0x1,
+                                                                       'Unk2': 0x2,
+                                                                       'Play SCD Animations': 0x3,
+                                                                       'Unk3': 0x4,
+                                                                       'Unk4': 0x5,
+                                                                       'Unk5': 0x6,
+                                                                       'Unk6': 0x7,
+                                                                       'Unk7': 0x8,
+                                                                       'Unk8': 0x9,
+                                                                       'Unk9': 0xa,
+                                                                       'Unk10': 0xb,
+                                                                       'Unk11': 0xc,
+                                                                       'Unk12': 0xd,
+                                                                       'Unk13': 0xe,
+                                                                       'Unk14': 0xf,
+                                                                   },
+                                                                   False),
                                                                ]
                                                                )
         

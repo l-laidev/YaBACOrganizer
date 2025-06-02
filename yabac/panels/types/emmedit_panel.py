@@ -11,8 +11,15 @@ class EMMEditPanel(BasePanel):
 
 
         self.part_flags = self.add_multiple_selection_entry(self.unknown_page, 'PartFlags', majorDimension=3, choices=[
-            (None, None, True),
-            (None, None, True),
+            ('EMM Number?', {
+                'First EMM': 0x0,
+                'Second EMM': 0x1,
+                'Third EMM': 0x2,
+                'Unknown': 0x3,
+                'Fifth EMM': 0x4,
+                'Disable?': 0x6,
+                'Unknown': 0x8,
+            }, False),
             (None, None, True),
             (None, None, True),
             ('Part ID', {

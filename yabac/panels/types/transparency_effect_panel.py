@@ -24,7 +24,7 @@ class TransparencyEffectPanel(BasePanel):
         self.red = DummyCtrl()
         self.green = DummyCtrl()
         self.blue = DummyCtrl()
-        self.color = self.add_color_picker(self.entry_page, 'Color', rgb_binding=lambda r,g,b: (self.red.SetValue(r), self.green.SetValue(g), self.blue.SetValue(b)))
+        self.color = self.add_color_picker(self.entry_page, 'Color', rgb_binding=self.rgb_binding)
         self.f_20 = self.add_float_entry(self.unknown_page, 'F_20')
         self.f_24 = self.add_float_entry(self.unknown_page, 'F_24')
         self.f_28 = self.add_float_entry(self.unknown_page, 'F_28')
@@ -41,4 +41,13 @@ class TransparencyEffectPanel(BasePanel):
     def load_entry(self, item, entry):
         entry.color = [entry.red, entry.green, entry.blue]
         super().load_entry(item, entry)
-        self.color.SetValue(self.entry.color)
+        self.color.SetValue(entry.color)
+
+    def rgb_binding(self, r, g, b):
+        self.red.SetValue(r)
+        self.green.SetValue(g)
+        self.blue.SetValue(b)
+        
+        self.entry.red = r
+        self.entry.green = g
+        self.entry.blue = b

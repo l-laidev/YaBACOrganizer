@@ -21,7 +21,7 @@ import yabac.darkmode as darkmode
 from yabac.my_helpers import convert_to_px
 
 
-VERSION = '0.5.0'
+VERSION = '0.5.1'
 
 
 

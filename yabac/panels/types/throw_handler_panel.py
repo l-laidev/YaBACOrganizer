@@ -17,15 +17,15 @@ class ThrowHandlerPanel(BasePanel):
             ], True),
             ('Jump to BAC entry', [
                 'Unknown (0x1)',
-                'When duration is finished',
+                'When animation is finished',
                 "Unknown (0x4)",
-                'When ground is reached'
+                'Unknown (0x8)'
             ], True),
             ('Throw Options #3', [
                 'Unknown (0x1)',
                 'Unknown (0x2)',
                 "Unknown (0x4)",
-                'Unknown (0x8)'
+                'When ground is reached'
             ], True),
             ('Direction, orientation and connection', [
                 'Direction fixed to animation, Bone Connection Enabled (User Only)',

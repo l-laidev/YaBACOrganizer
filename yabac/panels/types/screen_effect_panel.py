@@ -1,3 +1,4 @@
+import wx
 from yabac.panels.types import BasePanel, BONE_TYPES
 from pyxenoverse.bac.types.screen_effect import ScreenEffect
 
@@ -51,3 +52,23 @@ class ScreenEffectPanel(BasePanel):
         self.u_14 = self.add_float_entry(self.entry_page, 'X Position Offset')
         self.u_18 = self.add_float_entry(self.entry_page, 'Y Position Offset')
         self.u_1c = self.add_float_entry(self.entry_page, 'Z Position Offset')
+
+        self.bpe_effect_id_dropdown = wx.ComboBox(self.bpe_effect_id, -1, choices=[f'[{k}] {v}' for k,v in ScreenEffect.description.items()])
+        self.bpe_effect_id.GetSizer().Add(self.bpe_effect_id_dropdown, 0, wx.ALL, 10)
+        self.bpe_effect_id_dropdown.Bind(wx.EVT_COMBOBOX, self.on_select)
+        self.bpe_effect_id.hex_ctrl.Bind(wx.EVT_SPINCTRL, self.on_change_modif)
+    
+    def on_select(self, _):
+        val = self.bpe_effect_id_dropdown.GetValue()
+        key = val.split(' ')[0]
+        key = key.split(']')[0]
+        key = key[1:]
+        self.bpe_effect_id.SetValue(int(key))
+    
+    def on_change_modif(self, value):
+        self.bpe_effect_id.on_change(value)
+        
+        key = self.bpe_effect_id.hex_ctrl.GetValue()
+        val = self.bpe_effect_id.known_values.get(key, 'Unknown')
+        
+        self.bpe_effect_id_dropdown.SetValue(f'[{key}] {val}')

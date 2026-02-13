@@ -53,7 +53,7 @@ class PhysicsPanel(BasePanel):
             ('', [], True),
         ])
         
-        self.ean_index = self.add_num_entry(self.entry_page, 'EAN Index')
+        self.ean_index = self.add_num_entry(self.entry_page, 'EAN Index For "Play SCD Animations"')
         self.u_10 = self.add_hex_entry(self.unknown_page, 'U_10')
         self.f_14 = self.add_float_entry(self.unknown_page, 'F_14')
         self.f_18 = self.add_float_entry(self.unknown_page, 'F_18')

@@ -248,7 +248,7 @@ class BasePanel(wx.Panel):
         elif self.entry.bac_record.__name__ == "BACAuraEffect":
             aura_type_tmp = self.entry.aura_type
         elif self.entry.bac_record.__name__ == "BACPhysics":
-            function_type_tmp = self.entry.function_type
+            function_type_A_tmp = self.entry.function_type_A
         elif self.entry.bac_record.__name__ == "BACPartInvisibility":
             bcs_part_id_tmp = self.entry.bcs_part_id
         elif self.entry.bac_record.__name__ == "BACScreenEffect":
@@ -296,7 +296,7 @@ class BasePanel(wx.Panel):
         elif self.entry.bac_record.__name__ == "BACAuraEffect":
             do_update_maintype = True if self.entry.aura_type != aura_type_tmp else False
         elif self.entry.bac_record.__name__ == "BACPhysics":
-            do_update_maintype = True if self.entry.function_type != function_type_tmp else False
+            do_update_maintype = True if self.entry.function_type_A != function_type_A_tmp else False
         elif self.entry.bac_record.__name__ == "BACPartInvisibility":
             do_update_maintype = True if self.entry.bcs_part_id != bcs_part_id_tmp else False
         elif self.entry.bac_record.__name__ == "BACScreenEffect":

@@ -6,7 +6,7 @@ class PhysicsPanel(BasePanel):
     def __init__(self, *args):
         BasePanel.__init__(self, *args)
         
-        self.function_type = self.add_multiple_selection_entry(self.entry_page, 'Function Type', majorDimension=3, choices=[
+        self.function_type_A = self.add_multiple_selection_entry(self.entry_page, 'Function Type A', majorDimension=3, choices=[
                                                                    ("Options #1", [
                                                                        'Unk1',
                                                                        'Unk2',
@@ -46,6 +46,12 @@ class PhysicsPanel(BasePanel):
                                                                    False),
                                                                ]
                                                                )
+        self.function_type_B = self.add_multiple_selection_entry(self.entry_page, 'Funtion Type B', choices=[
+            ('', [], True),
+            ('', [], True),
+            ('', [], True),
+            ('', [], True),
+        ])
         
         self.ean_index = self.add_num_entry(self.entry_page, 'EAN Index')
         self.u_10 = self.add_hex_entry(self.unknown_page, 'U_10')

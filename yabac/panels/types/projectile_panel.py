@@ -28,12 +28,21 @@ class ProjectilePanel(BasePanel):
                 ('Skill/BSA Options #2', None, True),
                 ('Skill Type', {
                     'CMN': 0x0,
+                    'Unknown (0x1)': 0x1,
+                    'Unknown (0x2)': 0x2,
                     'Awoken': 0x3,
+                    'Unknown (0x4)': 0x4,
                     'Super': 0x5,
                     'Ultimate': 0x6,
                     'Evasive': 0x7,
                     'Unknown (0x8)': 0x8,
-                    'KI Blast': 0x9
+                    'KI Blast': 0x9,
+                    'Unknown (0xA)': 0xa,
+                    'Unknown (0xB)': 0xb,
+                    'Unknown (0xC)': 0xc,
+                    'Unknown (0xD)': 0xd,
+                    'Unknown (0xE)': 0xe,
+                    'Unknown (0xF)': 0xf,
                 }, False)
             ])
         self.skill_id = self.add_num_entry(self.entry_page, 'Skill Id')

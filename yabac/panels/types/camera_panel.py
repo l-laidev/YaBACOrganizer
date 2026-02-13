@@ -44,7 +44,9 @@ class CameraPanel(BasePanel):
         self.displacement_yz_duration = self.add_num_entry(interpolation_page, 'Displacement Y/Z Duration')
         self.duration_all = self.add_num_entry(interpolation_page, 'Duration ALL')
         self.camera_flags = self.add_multiple_selection_entry(self.entry_page, 'Camera Flags', choices=[
-            ('ECC Options', None, True),
+            ('ECC Options', [
+                'Activate ECC'
+                ], True),
             ('View', [
                 'Disable Photo Mode',
                 'Snap to View',

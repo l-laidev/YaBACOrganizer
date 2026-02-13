@@ -26,22 +26,42 @@ class EffectPanel(BasePanel):
         self.rotation_x = self.add_float_entry(eepk_page, 'Rotation X')
         self.rotation_y = self.add_float_entry(eepk_page, 'Rotation Y')
         self.rotation_z = self.add_float_entry(eepk_page, 'Rotation Z')
-        self.on_off_switch = self.add_unknown_hex_entry(
-            self.entry_page, 'On/Off switch', knownValues={
-                0x0: 'Common On',
-                0x1: 'Off for Flag 0x0',
-                0x2: 'On (?)',
-                0x3: 'Off for Flag 0x2',
-                0x4: 'On (Spawn on target, Effect Visable to Target)',
-                0x5: 'Off for Flag 0x4',
-                0x6: 'On (?)',
-                0x7: 'Off for Flag 0x6',
-                0x8: 'Common On (Enable Loop)',
-                0x9: 'Off for Flag 0x8',
-                0x10: 'On (Effect Visable Only to User)',
-                0x11: 'Off for Flag 0x10',
-                0x12: 'On (?)',
-                0x13: 'Off for Flag 0x12',
-                0x14: 'On (Spawn on target, Effect Not Visable to Target)',
-                0x15: 'Off (used with 0x14)'
-            })
+        self.on_off_switch = self.add_multiple_selection_entry(
+            self.entry_page,
+            'On/Off Switch',
+            majorDimension=1,
+            choices=[
+                ('Unknown', [
+                    'Visible Only to User',
+                    'Unknown (0x2)',
+                    'Unknown (0x4)',
+                    'Unknown (0x8)',
+                ], True),
+                ('Switch', [
+                    'Turn This Combination Off',
+                    'Unknown / On?',
+                    'Spawn on Target',
+                    'Enable Loop',
+                ], True)
+            ])
+        
+        # old effect switch
+        # self.on_off_switch = self.add_unknown_hex_entry(
+        #     self.entry_page, 'On/Off switch', knownValues={
+        #         0x0: 'Common On',
+        #         0x1: 'Off for Flag 0x0',
+        #         0x2: 'On (?)',
+        #         0x3: 'Off for Flag 0x2',
+        #         0x4: 'On (Spawn on target, Effect Visable to Target)',
+        #         0x5: 'Off for Flag 0x4',
+        #         0x6: 'On (?)',
+        #         0x7: 'Off for Flag 0x6',
+        #         0x8: 'Common On (Enable Loop)',
+        #         0x9: 'Off for Flag 0x8',
+        #         0x10: 'On (Effect Visable Only to User)',
+        #         0x11: 'Off for Flag 0x10',
+        #         0x12: 'On (?)',
+        #         0x13: 'Off for Flag 0x12',
+        #         0x14: 'On (Spawn on target, Effect Not Visable to Target)',
+        #         0x15: 'Off (used with 0x14)'
+        #     })
